@@ -15,16 +15,16 @@ ssh -i /var/lib/jenkins/keys/key.pem -T -o UserKnownHostsFile=/dev/null -o Stric
                 whoami
                 cd /tmp/
                 source bashrc
-				cd /home/ubuntu/
-				docker -v
-				aws --version
-				git --version
+		cd /home/ubuntu/
+		docker -v
+		aws --version
+		git --version
                 sudo aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 1234567890.dkr.ecr.ap-south-1.amazonaws.com
-				git clone -o StrictHostKeyChecking=no --branch master git@bitbucket.org:your-repo/app.git
-				cd app/
-				sudo docker build --no-cache -t 1234567890.dkr.ecr.ap-south-1.amazonaws.com/ecr-repo-name:$BUILD_NUMBER .
-				sudo docker push 1234567890.dkr.ecr.ap-south-1.amazonaws.com/ecr-repo-name:$BUILD_NUMBER
-				exit
+		git clone -o StrictHostKeyChecking=no --branch master git@bitbucket.org:your-repo/app.git
+		cd app/
+		sudo docker build --no-cache -t 1234567890.dkr.ecr.ap-south-1.amazonaws.com/ecr-repo-name:$BUILD_NUMBER .
+		sudo docker push 1234567890.dkr.ecr.ap-south-1.amazonaws.com/ecr-repo-name:$BUILD_NUMBER
+		exit
                 EOF
                 '''
 
